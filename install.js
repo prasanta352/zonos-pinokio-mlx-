@@ -29,6 +29,27 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           "uv pip install -e .",
+        ]
+      }
+    },
+    {
+      when: "{{platform === 'win32'}}",
+      method: "shell.run",
+      params: {
+        venv: "env",                // Edit this to customize the venv folder path
+        path: "app",                // Edit this to customize the path to start the shell from
+        message: [
+          "uv pip install mamba-ssm>=2.2.4 causal-conv1d>=1.5.0.post8"
+        ]
+      }
+    },
+    {
+      when: "{{platform !== 'win32'}}",
+      method: "shell.run",
+      params: {
+        venv: "env",                // Edit this to customize the venv folder path
+        path: "app",                // Edit this to customize the path to start the shell from
+        message: [
           "uv pip install -e .[compile]"
         ]
       }
