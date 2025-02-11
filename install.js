@@ -38,6 +38,7 @@ module.exports = {
       params: {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
+        build: true,
         message: [
           "uv pip install mamba-ssm>=2.2.4 causal-conv1d>=1.5.0.post8"
         ]
