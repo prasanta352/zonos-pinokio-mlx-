@@ -29,6 +29,7 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           "uv pip install -e .",
+          "{{platform === 'win32' ? 'uv pip install https://github.com/bdashore3/flash-attention/releases/download/v2.7.1.post1/flash_attn-2.7.1.post1+cu124torch2.5.1cxx11abiFALSE-cp310-cp310-win_amd64.whl' : ''}}",
           "uv pip install -e .[compile]"
         ]
       }
