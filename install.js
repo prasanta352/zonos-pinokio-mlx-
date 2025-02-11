@@ -5,7 +5,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/peanutcocktail/zonos app",
+          "git clone https://github.com/Zyphra/Zonos app",
         ]
       }
     },
@@ -28,16 +28,52 @@ module.exports = {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
-          "uv pip install gradio devicetorch",
-          "uv pip install -r requirements.txt"
+          "uv pip install -e ."
         ]
       }
     },
+//    {
+//      method: "fs.link",
+//      params: {
+//        venv: "app/env"
+//      }
+//    },
+
+    // espeak-ng installer script lifted from AllTalk Launcher from 6Morpheus6
+    // https://github.com/pinokiofactory/AllTalk-TTS/blob/main/install.js
     {
-      method: "fs.link",
+      when: "{{which('brew')}}",
+      method: "shell.run",
       params: {
-        venv: "app/env"
+        message: "brew install espeak-ng"
+      },
+      next: null
+    },
+    {
+      when: "{{which('apt')}}",
+      method: "shell.run",
+      params: {
+        sudo: true,
+        message: "apt install libaio-dev espeak-ng"
+      },
+      next: null
+    },
+    {
+      when: "{{which('yum')}}",
+      method: "shell.run",
+      params: {
+        sudo: true,
+        message: "yum install libaio-devel espeak-ng"
+      },
+      next: null
+    },
+    {
+      when: "{{which('winget')}}",
+      method: "shell.run",
+      params: {
+        sudo: true,
+        message: "winget install --id=eSpeak-NG.eSpeak-NG -e --silent --accept-source-agreements --accept-package-agreements"
       }
-    }
+    },
   ]
 }
