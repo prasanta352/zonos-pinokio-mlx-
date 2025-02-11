@@ -40,6 +40,7 @@ module.exports = {
         path: "app",                // Edit this to customize the path to start the shell from
         build: true,
         env: {
+          USE_NINJA: 0,
           DISTUTILS_USE_SDK: 1,
           NVCC_PREPEND_FLAGS: "-DWIN32_LEAN_AND_MEAN"
         },
