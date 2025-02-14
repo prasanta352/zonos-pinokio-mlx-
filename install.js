@@ -6,6 +6,7 @@ module.exports = {
       params: {
         message: [
           "git clone -b torch-backbone https://github.com/Zyphra/Zonos app",
+          "pnpm install"
         ]
       }
     },
