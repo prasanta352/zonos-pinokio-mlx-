@@ -39,14 +39,16 @@ module.exports = {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         build: true,
-        env: {
-          USE_NINJA: 0,
-          DISTUTILS_USE_SDK: 1,
-          NVCC_PREPEND_FLAGS: "-DWIN32_LEAN_AND_MEAN"
-        },
+//        env: {
+//          USE_NINJA: 0,
+//          DISTUTILS_USE_SDK: 1,
+//          NVCC_PREPEND_FLAGS: "-DWIN32_LEAN_AND_MEAN"
+//        },
         message: [
-          "uv pip install mamba-ssm>=2.2.4",
-          "uv pip install git+https://github.com/Dao-AILab/causal-conv1d --no-build-isolation"
+          //"uv pip install mamba-ssm>=2.2.4",
+          //"uv pip install git+https://github.com/Dao-AILab/causal-conv1d --no-build-isolation"
+          "uv pip install git+https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/mamba_ssm-2.2.4-cp310-cp310-win_amd64.whl",
+          "uv pip install git+https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/causal_conv1d-1.5.0.post8-cp310-cp310-win_amd64.whl"
         ]
       }
     },
