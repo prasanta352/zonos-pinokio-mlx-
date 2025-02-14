@@ -47,6 +47,7 @@ module.exports = {
         message: [
           //"uv pip install mamba-ssm>=2.2.4",
           //"uv pip install git+https://github.com/Dao-AILab/causal-conv1d --no-build-isolation"
+          "uv pip install https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp310-cp310-win_amd64.whl",
           "uv pip install https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/mamba_ssm-2.2.4-cp310-cp310-win_amd64.whl",
           "uv pip install https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/causal_conv1d-1.5.0.post8-cp310-cp310-win_amd64.whl"
         ]
