@@ -5,21 +5,21 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/Zyphra/Zonos app",
+          "git clone -b torch-backbone https://github.com/Zyphra/Zonos app",
         ]
       }
     },
-    {
-      method: "shell.run",
-      params: {
-        conda: {
-          name: "cu124"
-        },
-        message: [
-          "conda install conda-forge::cuda-runtime=12.4.0 conda-forge::cudnn --yes"
-        ]
-      }
-    },
+//    {
+//      method: "shell.run",
+//      params: {
+//        conda: {
+//          name: "cu124"
+//        },
+//        message: [
+//          "conda install conda-forge::cuda-runtime=12.4.0 conda-forge::cudnn --yes"
+//        ]
+//      }
+//    },
     // Delete this step if your project does not use torch
     {
       method: "script.start",
@@ -43,32 +43,32 @@ module.exports = {
         ]
       }
     },
-    {
-      when: "{{platform === 'win32'}}",
-      method: "shell.run",
-      params: {
-        conda: {
-          name: "cu124"
-        },
-        venv: "env",                // Edit this to customize the venv folder path
-        path: "app",                // Edit this to customize the path to start the shell from
-        build: true,
-//        env: {
-//          USE_NINJA: 0,
-//          DISTUTILS_USE_SDK: 1,
-//          NVCC_PREPEND_FLAGS: "-DWIN32_LEAN_AND_MEAN"
+//    {
+//      when: "{{platform === 'win32'}}",
+//      method: "shell.run",
+//      params: {
+//        conda: {
+//          name: "cu124"
 //        },
-        message: [
-          //"uv pip install mamba-ssm>=2.2.4",
-          //"uv pip install git+https://github.com/Dao-AILab/causal-conv1d --no-build-isolation"
-          "uv pip install https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp310-cp310-win_amd64.whl",
-          "uv pip install https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/mamba_ssm-2.2.4-cp310-cp310-win_amd64.whl",
-          "uv pip install https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/causal_conv1d-1.5.0.post8-cp310-cp310-win_amd64.whl"
-        ]
-      }
-    },
+//        venv: "env",                // Edit this to customize the venv folder path
+//        path: "app",                // Edit this to customize the path to start the shell from
+//        build: true,
+////        env: {
+////          USE_NINJA: 0,
+////          DISTUTILS_USE_SDK: 1,
+////          NVCC_PREPEND_FLAGS: "-DWIN32_LEAN_AND_MEAN"
+////        },
+//        message: [
+//          //"uv pip install mamba-ssm>=2.2.4",
+//          //"uv pip install git+https://github.com/Dao-AILab/causal-conv1d --no-build-isolation"
+//          "uv pip install https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp310-cp310-win_amd64.whl",
+//          "uv pip install https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/mamba_ssm-2.2.4-cp310-cp310-win_amd64.whl",
+//          "uv pip install https://github.com/sdbds/Zonos-for-windows/releases/download/windows-wheel/causal_conv1d-1.5.0.post8-cp310-cp310-win_amd64.whl"
+//        ]
+//      }
+//    },
     {
-      when: "{{platform !== 'win32'}}",
+      when: "{{platform === 'linux'}}",
       method: "shell.run",
       params: {
         venv: "env",                // Edit this to customize the venv folder path
