@@ -9,6 +9,17 @@ module.exports = {
         ]
       }
     },
+    {
+      method: "shell.run",
+      params: {
+        conda: {
+          name: "cu124"
+        },
+        message: [
+          "conda install conda-forge::cuda-runtime=12.4.0 conda-forge::cudnn --yes"
+        ]
+      }
+    },
     // Delete this step if your project does not use torch
     {
       method: "script.start",

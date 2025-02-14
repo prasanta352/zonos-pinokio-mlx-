@@ -6,6 +6,9 @@ module.exports = {
       params: {
         venv: "env",                // Edit this to customize the venv folder path
         env: { },                   // Edit this to customize environment variables (see documentation)
+        conda: {
+          name: "cu124"
+        },
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
           "python gradio_interface.py",    // Edit with your custom commands
