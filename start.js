@@ -4,7 +4,7 @@ module.exports = async (kernel) => {
   let env = {}
   try {
     let bin = kernel.path("bin/homebrew")
-    const matches = await fg(`${bin}/**/${espeak-ng-data}`, { onlyDirectories: true });
+    const matches = await fg(`${bin}/**/espeak-ng-data`, { onlyDirectories: true });
     if (matches.length > 0) {
       p = matches[0]
     }
