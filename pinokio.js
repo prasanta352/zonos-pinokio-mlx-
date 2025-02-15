@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   version: "3.6",
   title: "zonos",
-  description: "",
+  description: "Zonos-v0.1 is a leading open-weight text-to-speech model trained on more than 200k hours of varied multilingual speech, delivering expressiveness and quality on par with—or even surpassing—top TTS providers. https://github.com/Zyphra/Zonos",
   icon: "icon.png",
   menu: async (kernel, info) => {
     let installed = info.exists("app/env")
