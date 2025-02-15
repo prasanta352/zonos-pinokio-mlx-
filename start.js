@@ -1,7 +1,9 @@
 const fg = require('fast-glob');
 const path = require('path')
 module.exports = async (kernel) => {
-  let env = {}
+  let env = {
+    SERVER_NAME: "127.0.0.1"
+  }
   if (kernel.platform === 'darwin') {
     try {
       let p
@@ -27,8 +29,6 @@ module.exports = async (kernel) => {
       console.error(`Error searching: ${err.message}`);
     }
   } else if (kernel.platform === "win32") {
-
-    console.log(">> win")
     let espeakPath = kernel.template.vals.which("espeak-ng")
     let espeakRoot = path.dirname(espeakPath)
     env.PHONEMIZER_ESPEAK_PATH = espeakRoot
@@ -36,7 +36,6 @@ module.exports = async (kernel) => {
     env.ESPEAK_DATA_PATH = path.resolve(espeakRoot, "espeak-ng-data")
     let LIBPATH = kernel.bin.path("miniconda/libs")
     env.LINK = `/LIBPATH:${LIBPATH}`
-
   }
   console.log("ENV", env)
 
@@ -49,9 +48,6 @@ module.exports = async (kernel) => {
           build: true,
           venv: "env",                // Edit this to customize the venv folder path
           env,
-  //        conda: {
-  //          name: "cu124"
-  //        },
           path: "app",                // Edit this to customize the path to start the shell from
           message: [
             "python gradio_interface.py",    // Edit with your custom commands
