@@ -37,6 +37,8 @@ module.exports = async (kernel) => {
     env.ESPEAK_DATA_PATH = path.resolve(espeakRoot, "espeak-ng-data")
     let LIBPATH = kernel.bin.path("miniconda/libs")
     env.LINK = `/LIBPATH:${LIBPATH}`
+    env.CXX = "cl.exe"
+    env.CC = "cl.exe"
   }
   console.log("ENV", env)
 
