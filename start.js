@@ -44,6 +44,7 @@ module.exports = async (kernel) => {
       {
         method: "shell.run",
         params: {
+          build: true,
           venv: "env",                // Edit this to customize the venv folder path
           env,
   //        conda: {
