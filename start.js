@@ -33,6 +33,7 @@ module.exports = async (kernel) => {
     let espeakRoot = path.dirname(espeakPath)
     env.PHONEMIZER_ESPEAK_PATH = espeakRoot
     env.PHONEMIZER_ESPEAK_LIBRARY = path.resolve(espeakRoot, "libspeak-ng.dll")
+    env.ESPEAK_DATA_PATH = path.resolve(espeakRoot, "espeak-ng-data")
 
   }
   console.log("ENV", env)
