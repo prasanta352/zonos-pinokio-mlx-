@@ -1,4 +1,5 @@
 const fg = require('fast-glob');
+const path = require('path')
 module.exports = async (kernel) => {
   let env = {}
   if (kernel.platform === 'darwin') {
@@ -26,30 +27,13 @@ module.exports = async (kernel) => {
       console.error(`Error searching: ${err.message}`);
     }
   } else if (kernel.platform === "win32") {
-    console.log(">> win")
-    try {
-      let p
-      const matches = await fg(`**/eSpeak NG`, { cwd: "C:/", caseSensitiveMatch: false, onlyDirectories: true });
-      console.log("matches1", matches)
-      if (matches.length > 0) {
-        p = matches[0]
-      }
-      env.PHONEMIZER_ESPEAK_PATH = p
-    } catch (err) {
-      console.error(`Error searching: ${err.message}`);
-    }
 
-    try {
-      let p
-      const matches = await fg(`**/libespeak-ng.dll`, { cwd: "C:/", caseSensitiveMatch: false });
-      console.log("matches2", matches)
-      if (matches.length > 0) {
-        p = matches[0]
-      }
-      env.PHONEMIZER_ESPEAK_LIBRARY = p
-    } catch (err) {
-      console.error(`Error searching: ${err.message}`);
-    }
+    console.log(">> win")
+    let espeakPath = kernel.template.vals.which("espeak-ng")
+    let espeakRoot = path.dirname(espeakPath)
+    env.PHONEMIZER_ESPEAK_PATH = espeakRoot
+    env.PHONEMIZER_ESPEAK_LIBRARY = path.resolve(espeakRoot, "libspeak-ng.dll")
+
   }
   console.log("ENV", env)
 
