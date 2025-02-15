@@ -25,6 +25,30 @@ module.exports = async (kernel) => {
     } catch (err) {
       console.error(`Error searching: ${err.message}`);
     }
+  } else if (kernel.platform === "win32") {
+    try {
+      let p
+      let bin = kernel.path("bin/homebrew/Cellar")
+      const matches = await fg(`C:/**/eSpeak NG`, { onlyDirectories: true });
+      if (matches.length > 0) {
+        p = matches[0]
+      }
+      env.PHONEMIZER_ESPEAK_PATH = p
+    } catch (err) {
+      console.error(`Error searching: ${err.message}`);
+    }
+
+    try {
+      let p
+      let bin = kernel.path("bin/homebrew/Cellar")
+      const matches = await fg(`C:/**/libespeak-ng.dll`);
+      if (matches.length > 0) {
+        p = matches[0]
+      }
+      env.PHONEMIZER_ESPEAK_LIBRARY = p
+    } catch (err) {
+      console.error(`Error searching: ${err.message}`);
+    }
   }
   console.log("ENV", env)
 
