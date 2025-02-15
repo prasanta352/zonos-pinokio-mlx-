@@ -34,7 +34,8 @@ module.exports = async (kernel) => {
     env.PHONEMIZER_ESPEAK_PATH = espeakRoot
     env.PHONEMIZER_ESPEAK_LIBRARY = path.resolve(espeakRoot, "libespeak-ng.dll")
     env.ESPEAK_DATA_PATH = path.resolve(espeakRoot, "espeak-ng-data")
-    env.LIBPATH = kernel.bin.path("miniconda/libs")
+    let LIBPATH = kernel.bin.path("miniconda/libs")
+    env.LINK = `/LIBPATH:${LIBPATH}`
 
   }
   console.log("ENV", env)
