@@ -1,28 +1,30 @@
 const fg = require('fast-glob');
 module.exports = async (kernel) => {
   let env = {}
-  try {
-    let p
-    let bin = kernel.path("bin/homebrew/Cellar")
-    const matches = await fg(`${bin}/**/espeak-ng-data`, { onlyDirectories: true });
-    if (matches.length > 0) {
-      p = matches[0]
+  if (kernel.platform === 'darwin') {
+    try {
+      let p
+      let bin = kernel.path("bin/homebrew/Cellar")
+      const matches = await fg(`${bin}/**/espeak-ng-data`, { onlyDirectories: true });
+      if (matches.length > 0) {
+        p = matches[0]
+      }
+      env.ESPEAK_DATA_PATH = p
+    } catch (err) {
+      console.error(`Error searching: ${err.message}`);
     }
-    env.ESPEAK_DATA_PATH = p
-  } catch (err) {
-    console.error(`Error searching: ${err.message}`);
-  }
 
-  try {
-    let p
-    let bin = kernel.path("bin/homebrew/Cellar")
-    const matches = await fg(`${bin}/**/libespeak-ng.dylib`)
-    if (matches.length > 0) {
-      p = matches[0]
+    try {
+      let p
+      let bin = kernel.path("bin/homebrew/Cellar")
+      const matches = await fg(`${bin}/**/libespeak-ng.dylib`)
+      if (matches.length > 0) {
+        p = matches[0]
+      }
+      env.PHONEMIZER_ESPEAK_LIBRARY = p
+    } catch (err) {
+      console.error(`Error searching: ${err.message}`);
     }
-    env.PHONEMIZER_ESPEAK_LIBRARY = p
-  } catch (err) {
-    console.error(`Error searching: ${err.message}`);
   }
   console.log("ENV", env)
 
