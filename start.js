@@ -29,7 +29,7 @@ module.exports = async (kernel) => {
     console.log(">> win")
     try {
       let p
-      const matches = await fg(`C:/**/eSpeak NG`, { caseSensitiveMatch: false, onlyDirectories: true });
+      const matches = await fg(`**/eSpeak NG`, { cwd: "C:/", caseSensitiveMatch: false, onlyDirectories: true });
       console.log("matches1", matches)
       if (matches.length > 0) {
         p = matches[0]
@@ -41,7 +41,7 @@ module.exports = async (kernel) => {
 
     try {
       let p
-      const matches = await fg(`C:/**/libespeak-ng.dll`, { caseSensitiveMatch: false });
+      const matches = await fg(`**/libespeak-ng.dll`, { cwd: "C:/", caseSensitiveMatch: false });
       console.log("matches2", matches)
       if (matches.length > 0) {
         p = matches[0]
