@@ -32,7 +32,7 @@ module.exports = async (kernel) => {
     let espeakPath = kernel.template.vals.which("espeak-ng")
     let espeakRoot = path.dirname(espeakPath)
     env.PHONEMIZER_ESPEAK_PATH = espeakRoot
-    env.PHONEMIZER_ESPEAK_LIBRARY = path.resolve(espeakRoot, "libspeak-ng.dll")
+    env.PHONEMIZER_ESPEAK_LIBRARY = path.resolve(espeakRoot, "libespeak-ng.dll")
     env.ESPEAK_DATA_PATH = path.resolve(espeakRoot, "espeak-ng-data")
 
   }
