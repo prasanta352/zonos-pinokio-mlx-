@@ -28,8 +28,7 @@ module.exports = async (kernel) => {
   } else if (kernel.platform === "win32") {
     try {
       let p
-      let bin = kernel.path("bin/homebrew/Cellar")
-      const matches = await fg(`C:/**/eSpeak NG`, { onlyDirectories: true });
+      const matches = await fg(`C:\\**\\eSpeak NG`, { onlyDirectories: true });
       if (matches.length > 0) {
         p = matches[0]
       }
@@ -40,8 +39,7 @@ module.exports = async (kernel) => {
 
     try {
       let p
-      let bin = kernel.path("bin/homebrew/Cellar")
-      const matches = await fg(`C:/**/libespeak-ng.dll`);
+      const matches = await fg(`C:\\**\\libespeak-ng.dll`);
       if (matches.length > 0) {
         p = matches[0]
       }
