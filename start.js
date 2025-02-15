@@ -26,9 +26,11 @@ module.exports = async (kernel) => {
       console.error(`Error searching: ${err.message}`);
     }
   } else if (kernel.platform === "win32") {
+    console.log(">> win")
     try {
       let p
       const matches = await fg(`C:/**/eSpeak NG`, { caseSensitiveMatch: false, onlyDirectories: true });
+      console.log("matches1", matches)
       if (matches.length > 0) {
         p = matches[0]
       }
@@ -40,6 +42,7 @@ module.exports = async (kernel) => {
     try {
       let p
       const matches = await fg(`C:/**/libespeak-ng.dll`, { caseSensitiveMatch: false });
+      console.log("matches2", matches)
       if (matches.length > 0) {
         p = matches[0]
       }
