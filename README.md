@@ -1,4 +1,4 @@
 # zonos
 
-A pinokio script for https://github.com/peanutcocktail/zonos
+A pinokio script for https://github.com/Zyphra/Zonos
 
