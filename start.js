@@ -2,7 +2,7 @@ const fg = require('fast-glob');
 const path = require('path')
 module.exports = async (kernel) => {
   let env = {
-    SERVER_NAME: "127.0.0.1",
+    ZONOS_HOST: "127.0.0.1",
 //    PYTHONUTF8: 1
   }
   if (kernel.platform === 'darwin') {
