@@ -98,5 +98,12 @@ module.exports = {
         message: "winget install --id=eSpeak-NG.eSpeak-NG -e --silent --accept-source-agreements --accept-package-agreements"
       }
     },
+    {
+      method: 'input',
+      params: {
+        title: 'Retart Pinnokio",
+        description: 'Install Complete. Please restart Pinokio and try running the app"
+      }
+    },
   ]
 }
