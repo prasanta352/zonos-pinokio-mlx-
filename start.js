@@ -3,6 +3,7 @@ const path = require('path')
 module.exports = async (kernel) => {
   let env = {
     ZONOS_HOST: "127.0.0.1",
+    TORCHINDUCTOR_CACHE_DIR: kernel.path("cache/TORCH_INDUCTOR")
 //    PYTHONUTF8: 1
   }
   if (kernel.platform === 'darwin') {
