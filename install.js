@@ -101,8 +101,8 @@ module.exports = {
     {
       method: 'input',
       params: {
-        title: 'Retart Pinnokio",
-        description: 'Install Complete. Please restart Pinokio and try running the app"
+        title: "Restart Pinnokio",
+        description: "Install Complete. Please restart Pinokio and try running the app"
       }
     },
   ]
