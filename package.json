@@ -4,6 +4,7 @@
   "description": "A pinokio script for https://github.com/peanutcocktail/zonos",
   "main": "install.js",
   "scripts": {
+    "clear": "node clear_cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
