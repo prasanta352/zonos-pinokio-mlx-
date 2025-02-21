@@ -3,6 +3,19 @@ module.exports = async (kernel) => {
     run: [
       // Edit this step to customize the git repository to use
       {
+        when: "{{platform === 'darwin'}}",
+        method: "shell.run",
+        params: {
+          message: [
+            //"git clone -b torch-backbone https://github.com/cocktailpeanut/Zonos app",
+            "git clone -b pinokio-mlx https://github.com/prasanta352/Zonos app",
+            "pnpm install",
+            "pnpm run clear"
+          ]
+        }
+      },
+      {
+        when: "{{platform !== 'darwin'}}",
         method: "shell.run",
         params: {
           message: [
